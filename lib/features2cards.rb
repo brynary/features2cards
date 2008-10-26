@@ -2,6 +2,8 @@ require "rubygems"
 require "prawn"
 
 class Prawn::Document
+  CARD_WIDTH  = 72 * 5 # 5 inches
+  CARD_HEIGHT = 72 * 3 # 3 inches
   
   def margin_box(margin, &block)
     bounding_box [bounds.left + margin, bounds.top - margin],
@@ -12,14 +14,27 @@ class Prawn::Document
   def outline_box
     stroke_rectangle bounds.top_left, bounds.width, bounds.height
   end
+
+  def draw_scenario_card(scenario, row, col)
+    bounding_box [CARD_WIDTH * col, CARD_HEIGHT * row + ((bounds.height - (2*CARD_HEIGHT))/2)],
+      :width => CARD_WIDTH, :height => CARD_HEIGHT do
+        
+      outline_box
+    
+      margin_box 18 do
+        text "Scenario: ", :size => 14
+        
+        margin_box 36 do
+          text scenario.name, :size => 16, :align => :center
+        end
+      end
+    end
+  end
   
 end
 
 class Features2Cards
   VERSION = '0.1.0'
-  
-  CARD_WIDTH  = 72 * 5 # 5 inches
-  CARD_HEIGHT = 72 * 3 # 3 inches
   
   def self.execute
     load_cucumber
@@ -58,18 +73,8 @@ class Features2Cards
           col = 0
         end
         
-        bounding_box [CARD_WIDTH * col, CARD_HEIGHT * row], :width => CARD_WIDTH, :height => CARD_HEIGHT do
-          outline_box
+        draw_scenario_card(scenario, row, col)
         
-          margin_box 18 do
-            text "Scenario: ", :size => 14
-            
-            margin_box 36 do
-              text scenario.name, :size => 16, :align => :center
-            end
-          end
-        end
-            
         col += 1
         
         if col > 1
@@ -77,9 +82,6 @@ class Features2Cards
           row -= 1
         end
       end
-    end
-    
-    def draw_scenario_card(scenario, row, col)
     end
     
   end
