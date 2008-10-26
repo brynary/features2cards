@@ -22,10 +22,17 @@ class Prawn::Document
       outline_box
     
       margin_box 18 do
+        # outline_box
         text "Scenario: ", :size => 14
         
         margin_box 36 do
+          # outline_box
           text scenario.name, :size => 16, :align => :center
+        end
+        
+        bounding_box [bounds.left, bounds.bottom + 18], :width => bounds.width, :height => 18 do
+          # outline_box
+          text scenario.feature.header.split("\n").first, :align => :right
         end
       end
     end
