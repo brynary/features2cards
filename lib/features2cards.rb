@@ -1,8 +1,25 @@
 require "rubygems"
 require "prawn"
 
+class Prawn::Document
+  
+  def margin_box(margin, &block)
+    bounding_box [bounds.left + margin, bounds.top - margin],
+      :width => bounds.width - (margin * 2), :height => bounds.height - (margin * 2),
+      &block
+  end
+  
+  def outline_box
+    stroke_rectangle bounds.top_left, bounds.width, bounds.height
+  end
+  
+end
+
 class Features2Cards
   VERSION = '0.1.0'
+  
+  CARD_WIDTH  = 72 * 5 # 5 inches
+  CARD_HEIGHT = 72 * 3 # 3 inches
   
   def self.execute
     load_cucumber
@@ -31,25 +48,23 @@ class Features2Cards
   
   def generate_pdf(features)
     Prawn::Document.generate("cards.pdf", :page_layout => :landscape) do
-      height  = 72 * 3
-      width   = 72 * 5
-      
-      card_margin = 18
-      card_margin2 = 36
       row = 2
       col = 0
       
-      features.scenarios.first(4).each do |scenario|        
-        bounding_box [width * col, height * row], :width => width, :height => height do
-          stroke_rectangle bounds.top_left, bounds.width, bounds.height
+      features.scenarios.each do |scenario|
+        if row == 0
+          start_new_page
+          row = 2
+          col = 0
+        end
         
-          bounding_box [bounds.left + card_margin, bounds.top - card_margin],
-              :width => width - (card_margin * 2), :height => height - (card_margin * 2) do
-            
+        bounding_box [CARD_WIDTH * col, CARD_HEIGHT * row], :width => CARD_WIDTH, :height => CARD_HEIGHT do
+          outline_box
+        
+          margin_box 18 do
             text "Scenario: ", :size => 14
             
-            bounding_box [bounds.left + card_margin2, bounds.top - card_margin2],
-                :width => bounds.width - (card_margin2 * 2), :height => bounds.height - (card_margin2 * 2) do
+            margin_box 36 do
               text scenario.name, :size => 16, :align => :center
             end
           end
@@ -62,6 +77,9 @@ class Features2Cards
           row -= 1
         end
       end
+    end
+    
+    def draw_scenario_card(scenario, row, col)
     end
     
   end
