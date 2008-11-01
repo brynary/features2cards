@@ -1,6 +1,20 @@
 require "rubygems"
 require "prawn"
 
+class Card
+  
+  attr_reader :type
+  attr_reader :body
+  attr_reader :footer
+  
+  def initialize(type, body, footer = nil)
+    @type = type
+    @body = body
+    @footer = footer
+  end
+  
+end
+
 class Prawn::Document
   CARD_WIDTH  = 72 * 5 # 5 inches
   CARD_HEIGHT = 72 * 3 # 3 inches
@@ -15,7 +29,7 @@ class Prawn::Document
     stroke_rectangle bounds.top_left, bounds.width, bounds.height
   end
 
-  def draw_scenario_card(scenario, row, col)
+  def draw_card(card, row, col)
     bounding_box [CARD_WIDTH * col, CARD_HEIGHT * row + ((bounds.height - (2*CARD_HEIGHT))/2)],
       :width => CARD_WIDTH, :height => CARD_HEIGHT do
         
@@ -23,16 +37,16 @@ class Prawn::Document
     
       margin_box 18 do
         # outline_box
-        text "Scenario: ", :size => 14
+        text card.type + ": ", :size => 14
         
         margin_box 36 do
           # outline_box
-          text scenario.name, :size => 16, :align => :center
+          text card.body, :size => 16, :align => :center
         end
         
         bounding_box [bounds.left, bounds.bottom + 18], :width => bounds.width, :height => 18 do
           # outline_box
-          text scenario.feature.header.split("\n").first, :align => :right
+          text card.footer, :align => :right
         end
       end
     end
@@ -61,26 +75,42 @@ class Features2Cards
   end
   
   def execute
-    file = ARGV.first
+    files = ARGV
     parser = Cucumber::TreetopParser::FeatureParser.new
     
-    features = parser.parse_feature(file)
-    generate_pdf(features)
+    features = []
+    
+    files.each do |file|
+      features << parser.parse_feature(file)
+    end
+    
+    cards = features_to_cards(features)
+    generate_pdf(cards)
   end
   
-  def generate_pdf(features)
+  def features_to_cards(features)
+    cards = []
+    
+    features.map { |f| f.scenarios }.flatten.each do |scenario|
+      cards << Card.new("Scenario", scenario.name, scenario.feature.header.split("\n").first)
+    end
+    
+    cards
+  end
+  
+  def generate_pdf(cards)
     Prawn::Document.generate("cards.pdf", :page_layout => :landscape) do
       row = 2
       col = 0
       
-      features.scenarios.each do |scenario|
+      cards.each do |card|
         if row == 0
           start_new_page
           row = 2
           col = 0
         end
         
-        draw_scenario_card(scenario, row, col)
+        draw_card(card, row, col)
         
         col += 1
         
