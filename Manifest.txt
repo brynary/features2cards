@@ -1,7 +1,0 @@
-History.txt
-Manifest.txt
-README
-README.txt
-Rakefile
-bin/features2cards
-lib/features2cards.rb
