@@ -2,22 +2,31 @@
 
 * http://github.com/brynary/features2cards
 
-== DESCRIPTION:
+== Description
 
-Create PDFs from Cucumber features and scenarios for printing
+Create PDF cards from Cucumber features and scenarios for printing. We use it as we kick
+off our sprints to create index cards for our task board.
 
-== FEATURES/PROBLEMS:
+== Usage
 
-* FIX (list of features or problems)
+  features2cards features/scale.feature
 
-== SYNOPSIS:
+== Install
 
-  FIX (code sample of usage)
+If you haven't already added GitHub to your gem sources:
 
-== REQUIREMENTS:
+  sudo gem sources -a http://gems.github.com
+  
+Then:
 
-* FIX (list of requirements)
+  sudo gem install brynary-features2cards
 
-== INSTALL:
+== Authors
 
-* FIX (sudo gem install, anything else)
+- Maintained by {Bryan Helmkamp}[mailto:bryan@brynary.com]
+- Inspired by Luke Melia (http://www.lukemelia.com/blog/archives/2007/12/29/pdf-storycards-001-released-my-first-gem)
+  
+== License
+
+Copyright (c) 2008 Bryan Helmkamp.
+See MIT-LICENSE.txt in this directory.
