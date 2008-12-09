@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.date = %q{2008-12-08}
   s.description = %q{features2cards. Generate printable PDF index cards from Cucumber feature files}
   s.email = %q{bryan@brynary.com}
-  s.files = ["History.txt", "MIT-LICENSE.txt", "README.txt", "Rakefile", "bin/features2cards", "lib/features2cards", "lib/features2cards/card.rb", "lib/features2cards/cli.rb", "lib/features2cards/prawn.rb", "lib/features2cards.rb"]
+  s.files = ["History.txt", "MIT-LICENSE.txt", "README.rdoc", "Rakefile", "bin/features2cards", "lib/features2cards", "lib/features2cards/card.rb", "lib/features2cards/cli.rb", "lib/features2cards/prawn.rb", "lib/features2cards.rb"]
   s.homepage = %q{http://github.com/brynary/features2cards}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.1}
