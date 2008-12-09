@@ -22,6 +22,11 @@ module Features2Cards
     end
 
     def execute
+      if files.empty?
+        usage
+        exit
+      end
+      
       generate_pdf(cards)
     end
     
@@ -54,6 +59,11 @@ module Features2Cards
 
     def generate_pdf(cards)
       Prawn::Document.generate_cards(cards)
+    end
+    
+    def usage
+      $stderr.puts "ERROR: No feature files given"
+      $stderr.puts "usage: features2cards <feature files>"
     end
     
   end
