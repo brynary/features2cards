@@ -11,6 +11,7 @@ spec = Gem::Specification.new do |s|
   s.homepage     = "http://github.com/brynary/features2cards"
   s.summary      = "features2cards. Generate printable PDF index cards from Cucumber feature files"
   s.description  = s.summary
+  s.executables  = "features2cards"
   s.files        = %w[History.txt MIT-LICENSE.txt README.rdoc Rakefile] + Dir["bin/*"] + Dir["lib/**/*"] + Dir["vendor/**/*"]
   
   s.add_dependency "prawn"

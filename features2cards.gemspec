@@ -7,8 +7,10 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bryan Helmkamp"]
   s.date = %q{2008-12-08}
+  s.default_executable = %q{features2cards}
   s.description = %q{features2cards. Generate printable PDF index cards from Cucumber feature files}
   s.email = %q{bryan@brynary.com}
+  s.executables = ["features2cards"]
   s.files = ["History.txt", "MIT-LICENSE.txt", "README.rdoc", "Rakefile", "bin/features2cards", "lib/features2cards", "lib/features2cards/card.rb", "lib/features2cards/cli.rb", "lib/features2cards/prawn.rb", "lib/features2cards.rb"]
   s.homepage = %q{http://github.com/brynary/features2cards}
   s.require_paths = ["lib"]
