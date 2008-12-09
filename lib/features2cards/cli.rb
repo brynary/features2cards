@@ -22,52 +22,38 @@ module Features2Cards
     end
 
     def execute
-      files = ARGV
-      parser = Cucumber::TreetopParser::FeatureParser.new
-  
-      features = []
-  
-      files.each do |file|
-        features << parser.parse_feature(file)
-      end
-  
-      cards = features_to_cards(features)
       generate_pdf(cards)
+    end
+    
+    def cards
+      features_to_cards(features)
+    end
+    
+    def features
+      files.map do |file|
+        parser.parse_feature(file)
+      end
+    end
+    
+    def files
+      ARGV
+    end
+    
+    def parser
+      @parser ||= Cucumber::TreetopParser::FeatureParser.new
     end
 
     def features_to_cards(features)
-      cards = []
-  
-      features.map { |f| f.scenarios }.flatten.each do |scenario|
-        cards << Card.new("Scenario", scenario.name, scenario.feature.header.split("\n").first)
-      end
-  
-      cards
+      features.map do |feature|
+        [Card.for_feature(feature)] +
+        feature.scenarios.map do |scenario|
+          Card.for_scenario(scenario)
+        end
+      end.flatten
     end
 
     def generate_pdf(cards)
-      Prawn::Document.generate("cards.pdf", :page_layout => :landscape) do
-        row = 2
-        col = 0
-    
-        cards.each do |card|
-          if row == 0
-            start_new_page
-            row = 2
-            col = 0
-          end
-      
-          draw_card(card, row, col)
-      
-          col += 1
-      
-          if col > 1
-            col = 0
-            row -= 1
-          end
-        end
-      end
-  
+      Prawn::Document.generate_cards(cards)
     end
     
   end
