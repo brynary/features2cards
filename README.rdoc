@@ -9,17 +9,15 @@ off our sprints to create index cards for our task board.
 
 == Usage
 
+Example:
+
   features2cards features/scale.feature
+  
+This will generate a file called cards.pdf in the current directory.
 
 == Install
 
-If you haven't already added GitHub to your gem sources:
-
-  sudo gem sources -a http://gems.github.com
-  
-Then:
-
-  sudo gem install brynary-features2cards
+  sudo gem install features2cards
 
 == Authors
 
