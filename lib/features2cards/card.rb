@@ -6,7 +6,7 @@ module Features2Cards
     attr_reader :footer
 
     def self.for_feature(feature)
-      new("Feature", feature.header.split("\n").first, "")
+      new("Feature", feature.header.split("\n").first.gsub(/^\s*Feature:/, '').strip, "")
     end
     
     def self.for_scenario(scenario)
