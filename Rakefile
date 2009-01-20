@@ -14,7 +14,7 @@ spec = Gem::Specification.new do |s|
   s.executables  = "features2cards"
   s.files        = %w[History.txt MIT-LICENSE.txt README.rdoc Rakefile] + Dir["bin/*"] + Dir["lib/**/*"] + Dir["vendor/**/*"]
   
-  s.add_dependency "prawn"
+  s.add_dependency "prawn", ">= 0.1.2"
 end
 
 Rake::GemPackageTask.new(spec) do |package|
