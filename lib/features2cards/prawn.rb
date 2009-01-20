@@ -1,3 +1,5 @@
+require "prawn"
+
 class Prawn::Document
   CARD_WIDTH  = 72 * 5 # 5 inches
   CARD_HEIGHT = 72 * 3 # 3 inches
