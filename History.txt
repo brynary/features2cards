@@ -1,9 +1,13 @@
-=== 0.3.0.0 / 2009-05-28
+=== 0.3.1 / 2009-06-12
 
-* Upgraded to Cucumber > 0.3.x
-* Added language option to use the different languages cucumber supports.
-* Added out option to specify pdf file name.
-* Can handle directories and files
+The Kosmas Schütz Release.
+
+* 4 major enhancements
+
+  * Upgraded to Cucumber > 0.3.x (Kosmas Schütz)
+  * Added language option to use the different languages cucumber supports. (Kosmas Schütz)
+  * Added out option to specify pdf file name. (Kosmas Schütz)
+  * Can handle directories and files (Kosmas Schütz)
 
 === 0.1.0 / 2008-10-26
 

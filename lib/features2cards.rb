@@ -11,8 +11,8 @@ module Features2Cards#:nodoc:
   class VERSION #:nodoc:
     MAJOR = 0
     MINOR = 3
-    TINY  = 0
-    PATCH = 0 # Set to nil for official release
+    TINY  = 1
+    PATCH = nil # Set to nil for official release
 
     STRING = [MAJOR, MINOR, TINY, PATCH].compact.join('.')
     STABLE_STRING = [MAJOR, MINOR, TINY].join('.')
