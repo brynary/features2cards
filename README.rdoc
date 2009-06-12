@@ -9,11 +9,18 @@ off our sprints to create index cards for our task board.
 
 == Usage
 
-Example:
+  features2cards [options] [ [FILE|DIR] ]
 
-  features2cards features/scale.feature
-  
-This will generate a file called cards.pdf in the current directory.
+  Examples:
+    features2cards features2cards.feature
+    features2cards --out italian.pdf--language it examples/i18n/it
+
+=== Options
+
+  -l [LANG], --language [LANG]  Specify language for features (Default: en)
+  -o, --out [FILE]              Specify pdf output file (Default: cards.pdf).
+  --version                     Show version
+  -h, --help                    Show help
 
 == Install
 
@@ -23,7 +30,7 @@ This will generate a file called cards.pdf in the current directory.
 
 - Maintained by {Bryan Helmkamp}[mailto:bryan@brynary.com]
 - Inspired by Luke Melia (http://www.lukemelia.com/blog/archives/2007/12/29/pdf-storycards-001-released-my-first-gem)
-  
+
 == License
 
 Copyright (c) 2008 Bryan Helmkamp.

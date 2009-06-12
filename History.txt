@@ -1,4 +1,11 @@
-=== 1.0.0 / 2008-10-26
+=== 0.3.0.0 / 2009-05-28
+
+* Upgraded to Cucumber > 0.3.x
+* Added language option to use the different languages cucumber supports.
+* Added out option to specify pdf file name.
+* Can handle directories and files
+
+=== 0.1.0 / 2008-10-26
 
 * 1 major enhancement
 

@@ -2,4 +2,4 @@
 
 require File.expand_path(File.dirname(__FILE__) + "/../lib/features2cards")
 
-Features2Cards::CLI.execute
+Features2Cards::CLI.execute(ARGV.dup)

@@ -1,0 +1,30 @@
+--
+# This file contains example of several GemInstaller features.  Your file can be simpler
+defaults: # defaults apply to all gems in the 'gems:' section, but can be overridden
+  # '--include-dependencies' is only needed for RubyGems < 1.0
+  # install_options: --include-dependencies
+gems:
+- name: geminstaller
+  version: >= 0.5.1
+- name: diff-lcs
+  version: >= 1.1.2
+- name: hoe
+  version: >= 1.12.2
+- name: prawn
+  version: >= 0.4.1
+<% if RUBY_PLATFORM =~ /mswin32/ %>
+- name: rcov
+  version: >= 0.8.1.2.0
+<% else %>
+- name: spicycode-rcov
+  version: >= 0.8.2.1
+<% end %> 
+- name: rspec
+  version: >= 1.2.6
+- name: rspec-rails
+  version: >= 1.2.6
+- name: term-ansicolor
+  version: >= 1.0.3
+- name: treetop
+  version: >= 1.2.5
+  

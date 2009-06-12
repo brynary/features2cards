@@ -4,8 +4,8 @@ class Prawn::Document
   CARD_WIDTH  = 72 * 5 # 5 inches
   CARD_HEIGHT = 72 * 3 # 3 inches
   
-  def self.generate_cards(cards)
-    generate("cards.pdf", :page_layout => :landscape) do
+  def self.generate_cards(outfile, cards)
+    generate(outfile, :page_layout => :landscape) do
       row = 2
       col = 0
   
@@ -44,16 +44,16 @@ class Prawn::Document
         
       outline_box
     
-      margin_box 18 do
-        text card.type + ": ", :size => 14
+      margin_box 8 do
+        text card.type, :size => 12
         
-        margin_box 36 do
-          text card.body, :size => 16, :align => :center
+        margin_box 16 do
+          text card.body, :size => 10, :align => :left
         end
         
         unless card.footer.nil?
-          bounding_box [bounds.left, bounds.bottom + 18], :width => bounds.width, :height => 18 do
-            text card.footer, :align => :right
+          bounding_box [bounds.left, bounds.bottom + 10], :width => bounds.width, :height => 10 do
+            text card.footer, :size => 8, :align => :right
           end
         end
       end
