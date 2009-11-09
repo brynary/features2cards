@@ -2,7 +2,7 @@
 
 * 1 major enhancements
 
-  * Upgraded to Cucumber > 0.3.x (Kosmas Schütz)
+  * Upgraded to Cucumber > 0.4.x (Kosmas Schütz)
   * Use language specified in feature files (Kosmas Schütz)
 
 * 1 bug fix
