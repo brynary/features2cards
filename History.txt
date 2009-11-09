@@ -5,6 +5,10 @@
   * Upgraded to Cucumber > 0.3.x (Kosmas Schütz)
   * Use language specified in feature files (Kosmas Schütz)
 
+* 1 bug fix
+
+  * Don't require rubygems or modify load path in lib/ code (Bryan Helmkamp)
+
 === 0.3.1 / 2009-06-12
 
 The Kosmas Schütz Release.
