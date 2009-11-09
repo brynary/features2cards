@@ -1,7 +1,9 @@
 require 'rubygems'
 require "rake/gempackagetask"
 require "rake/clean"
-require './lib/features2cards.rb'
+
+$:.unshift('lib')
+require 'features2cards'
 
 Dir['rake_tasks/**/*.rake'].each { |rake| load rake }
 

@@ -9,7 +9,7 @@ Given /^I am in (.*)$/ do |example_dir_relative_path|
 end
 
 When /^I run features2cards (.*)$/ do |features2cards_opts|
-  run "#{Features2Cards::RUBY_BINARY} #{Features2Cards::BINARY} #{features2cards_opts}"
+  run "#{Features2Cards::RUBY_BINARY} -I #{features2cards_lib_dir} -rrubygems #{Features2Cards::BINARY} #{features2cards_opts}"
 end
 
 Then /^it should (fail|pass)$/ do |success|
