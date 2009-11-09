@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{features2cards}
-  s.version = "0.3.1"
+  s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bryan Helmkamp"]
@@ -23,6 +23,7 @@ off our sprints to create index cards for our task board.}
     "MIT-LICENSE.txt",
     "README.rdoc",
     "Rakefile",
+    "Thorfile",
     "bin/features2cards",
     "examples/i18n/.gitignore",
     "examples/i18n/README.textile",
@@ -78,14 +79,12 @@ off our sprints to create index cards for our task board.}
     "features/features2cards_cli.feature",
     "features/step_definitions/features2cards_steps.rb",
     "features/support/env.rb",
+    "features2cards.gemspec",
     "lib/features2cards.rb",
     "lib/features2cards/card.rb",
     "lib/features2cards/cli.rb",
     "lib/features2cards/platform.rb",
     "lib/features2cards/prawn.rb",
-    "rake_tasks/features.rake",
-    "rake_tasks/rspec.rake",
-    "rake_tasks/rubygems.rake",
     "spec/features2cards/card_spec.rb",
     "spec/features2cards/cli_spec.rb",
     "spec/features2cards/prawn_spec.rb",
