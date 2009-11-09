@@ -13,11 +13,10 @@ off our sprints to create index cards for our task board.
 
   Examples:
     features2cards features2cards.feature
-    features2cards --out italian.pdf--language it examples/i18n/it
+    features2cards --out italian.pdf examples/i18n/it
 
 === Options
 
-  -l [LANG], --language [LANG]  Specify language for features (Default: en)
   -o, --out [FILE]              Specify pdf output file (Default: cards.pdf).
   --version                     Show version
   -h, --help                    Show help
@@ -33,5 +32,5 @@ off our sprints to create index cards for our task board.
 
 == License
 
-Copyright (c) 2008 Bryan Helmkamp.
+Copyright (c) 2008-2009 Bryan Helmkamp.
 See MIT-LICENSE.txt in this directory.

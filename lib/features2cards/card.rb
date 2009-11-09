@@ -5,7 +5,7 @@ module Features2Cards
     attr_reader :body
     attr_reader :footer
 
-    def self.for_feature(feature, lang)
+    def self.for_feature(feature)
       actual_feature = feature.to_sexp()
       actual_feature.shift
       actual_feature.shift
@@ -25,6 +25,10 @@ module Features2Cards
           when :scenario
             scenario.shift
             scenario.shift
+          when :tag
+            next
+          when :comment
+            next
         end     
          title = scenario[0] + " " + scenario[1]
          scenario.shift

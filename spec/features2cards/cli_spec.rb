@@ -8,13 +8,7 @@ module Features2Cards
     end
     
     it "should parse feature in german" do
-      cli = CLI.execute(%w{--language de examples/i18n/de})
-    end
-    
-    it "should accept --language option" do
-      cli = CLI.new(StringIO.new)      
-      cli.parse!(%w{--language de})
-      cli.options[:lang] == 'de'
+      cli = CLI.execute(%w{examples/i18n/de})
     end
     
     it "should accept --out option" do
